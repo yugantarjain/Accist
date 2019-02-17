@@ -13,6 +13,8 @@ class CrashTableViewController: UITableViewController {
     
     var places =  [String]()
     var timings = [Timestamp]()
+    var imageLinks = [String]()
+    var xys = [GeoPoint]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,12 +33,14 @@ class CrashTableViewController: UITableViewController {
             } else {
                 for document in querySnapshot!.documents {
                     print("\(document.documentID) => \(document.data())")
-                    print(document.get("time"))
-                    print(document.get("image"))
-                    print(document.get("place"))
-                    print(document.get("xy"))
+//                    print(document.get("time"))
+//                    print(document.get("image"))
+//                    print(document.get("place"))
+//                    print(document.get("xy"))
                     self.places.append(document.get("place") as! String)
                     self.timings.append(document.get("time") as! Timestamp)
+                    self.imageLinks.append(document.get("image") as! String)
+                    self.xys.append(document.get("xy") as! GeoPoint)
                 }
             }
         }
