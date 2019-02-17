@@ -10,6 +10,9 @@ import UIKit
 import FirebaseFirestore
 
 class CrashTableViewController: UITableViewController {
+    
+    var places =  [String]()
+    var timings = [Timestamp]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +24,7 @@ class CrashTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
         db.collection("cases").getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
@@ -31,6 +35,8 @@ class CrashTableViewController: UITableViewController {
                     print(document.get("image"))
                     print(document.get("place"))
                     print(document.get("xy"))
+                    self.places.append(document.get("place") as! String)
+                    self.timings.append(document.get("time") as! Timestamp)
                 }
             }
         }
