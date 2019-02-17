@@ -13,7 +13,7 @@ class CrashTableViewController: UITableViewController {
     
     var places =  [String]()
     var timings = [Timestamp]()
-    var imageLinks = [DocumentReference]()
+    var imageLinks = [String]()
     var xys = [GeoPoint]()
     @IBOutlet var crashTable: UITableView!
     
@@ -40,7 +40,7 @@ class CrashTableViewController: UITableViewController {
 //                    print(document.get("xy"))
                     self.places.append(document.get("place") as! String)
                     self.timings.append(document.get("time") as! Timestamp)
-                    self.imageLinks.append(document.get("image") as! DocumentReference)
+                    self.imageLinks.append(document.get("image") as! String)
                     self.xys.append(document.get("xy") as! GeoPoint)
                 }
             }
@@ -69,6 +69,17 @@ class CrashTableViewController: UITableViewController {
         // Configure the cell...
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier=="toFull")
+        {
+            let next = segue.destination as! ViewController
+        }
     }
     
 

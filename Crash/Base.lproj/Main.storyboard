@@ -88,6 +88,7 @@ Normal</string>
                     </tableView>
                     <connections>
                         <outlet property="crashTable" destination="UCO-Cv-sRF" id="F66-c3-Z21"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="toFull" id="okQ-qd-r2B"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nNc-EZ-w44" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -106,7 +107,7 @@ Normal</string>
                                 <rect key="frame" x="0.0" y="430" width="375" height="237"/>
                             </mapView>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9gs-44-g3f">
-                                <rect key="frame" x="16" y="30" width="343" height="183"/>
+                                <rect key="frame" x="16" y="74" width="343" height="183"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="9gs-44-g3f" secondAttribute="height" multiplier="343:183" id="etV-EK-bxO"/>

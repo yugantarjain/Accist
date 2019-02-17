@@ -8,9 +8,16 @@
 
 import UIKit
 import MapKit
+import Firebase
 
 class ViewController: UIViewController
 {
+    var imageLink: String!
+    var place: String!
+    var time: String!
+    var lati: Double!
+    var longi: Double!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
