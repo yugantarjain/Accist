@@ -13,7 +13,7 @@ class CrashTableViewController: UITableViewController {
     
     var places =  [String]()
     var timings = [Timestamp]()
-    var imageLinks = [String]()
+    var imageLinks = [DocumentReference]()
     var xys = [GeoPoint]()
     @IBOutlet var crashTable: UITableView!
     
@@ -40,7 +40,7 @@ class CrashTableViewController: UITableViewController {
 //                    print(document.get("xy"))
                     self.places.append(document.get("place") as! String)
                     self.timings.append(document.get("time") as! Timestamp)
-//                    self.imageLinks.append(document.get("image") as! String)
+                    self.imageLinks.append(document.get("image") as! DocumentReference)
                     self.xys.append(document.get("xy") as! GeoPoint)
                 }
             }
