@@ -20,6 +20,8 @@ class MainPageViewController: UIViewController {
         mainButton.titleLabel?.textAlignment = .center
         mainButton.isEnabled = false
         
+        navigationController?.navigationBar.isHidden = true
+        
         db.collection("cases").getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
