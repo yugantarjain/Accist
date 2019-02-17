@@ -68,7 +68,6 @@
 			isa = PBXGroup;
 			children = (
 				53D6B8332219895800116461 /* AppDelegate.swift */,
-				53D6B8352219895800116461 /* ViewController.swift */,
 				53D6B8372219895800116461 /* Main.storyboard */,
 				53D6B83A2219895900116461 /* Assets.xcassets */,
 				53D6B83C2219895900116461 /* LaunchScreen.storyboard */,
@@ -76,6 +75,7 @@
 				53D6B83F2219895900116461 /* Info.plist */,
 				533091782219D939008E052E /* MainPageViewController.swift */,
 				5330917A2219DF14008E052E /* CrashTableViewController.swift */,
+				53D6B8352219895800116461 /* ViewController.swift */,
 			);
 			path = Crash;
 			sourceTree = "<group>";
@@ -392,7 +392,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZCF7ZR4CVF;
 				INFOPLIST_FILE = Crash/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.Crash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -408,7 +411,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZCF7ZR4CVF;
 				INFOPLIST_FILE = Crash/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.Crash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
