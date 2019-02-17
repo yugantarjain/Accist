@@ -10,8 +10,6 @@ import UIKit
 import FirebaseFirestore
 
 class MainPageViewController: UIViewController {
-    
-    let db = Firestore.firestore()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +25,7 @@ class MainPageViewController: UIViewController {
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
+                    self.mainButton.setTitle("Accident\nReported!", for: UIControl.State.normal)
                     self.mainButton.isEnabled = true
                     self.view.backgroundColor = UIColor.red
                     break;
