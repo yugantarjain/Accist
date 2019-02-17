@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		533091792219D939008E052E /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533091782219D939008E052E /* MainPageViewController.swift */; };
 		5330917B2219DF14008E052E /* CrashTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5330917A2219DF14008E052E /* CrashTableViewController.swift */; };
+		537044BC2219F7790033DD97 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 537044BB2219F7790033DD97 /* MapKit.framework */; };
 		53989B452219BD77003454F4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 53989B442219BD77003454F4 /* GoogleService-Info.plist */; };
 		53D6B8342219895800116461 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D6B8332219895800116461 /* AppDelegate.swift */; };
 		53D6B8362219895800116461 /* FullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D6B8352219895800116461 /* FullViewController.swift */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		533091782219D939008E052E /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		5330917A2219DF14008E052E /* CrashTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashTableViewController.swift; sourceTree = "<group>"; };
+		537044BB2219F7790033DD97 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		53989B442219BD77003454F4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		53D6B8302219895800116461 /* Crash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Crash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53D6B8332219895800116461 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				537044BC2219F7790033DD97 /* MapKit.framework in Frameworks */,
 				5CF4713415FA0F27266855EA /* Pods_Crash.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -92,6 +95,7 @@
 		C9C874B4037812015F15495D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				537044BB2219F7790033DD97 /* MapKit.framework */,
 				542CE2CAEE8D65C5E0AD1245 /* Pods_Crash.framework */,
 			);
 			name = Frameworks;
@@ -139,7 +143,7 @@
 								enabled = 0;
 							};
 							com.apple.Maps.iOS = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};

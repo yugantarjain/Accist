@@ -10,13 +10,29 @@ import UIKit
 import FirebaseFirestore
 
 class MainPageViewController: UIViewController {
+    
+    let db = Firestore.firestore()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
         // Do any additional setup after loading the view.
         mainButton.titleLabel?.numberOfLines = 0
         mainButton.titleLabel?.textAlignment = .center
+        mainButton.isEnabled = false
+        
+        db.collection("cases").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    self.mainButton.isEnabled = true
+                    self.view.backgroundColor = UIColor.red
+                    break;
+                }
+            }
+        }
     }
     @IBOutlet weak var mainButton: UIButton!
     
