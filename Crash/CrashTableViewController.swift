@@ -76,8 +76,7 @@ class CrashTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         index = indexPath.row
-        
-        
+        performSegue(withIdentifier: "toFull", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
