@@ -40,7 +40,7 @@ class CrashTableViewController: UITableViewController {
 //                    print(document.get("xy"))
                     self.places.append(document.get("place") as! String)
                     self.timings.append(document.get("time") as! Timestamp)
-                    self.imageLinks.append(document.get("image") as! String)
+//                    self.imageLinks.append(document.get("image") as! String)
                     self.xys.append(document.get("xy") as! GeoPoint)
                 }
             }
@@ -50,10 +50,10 @@ class CrashTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    /*override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 0
-    }
+    }*/
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -63,8 +63,8 @@ class CrashTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "crashCell", for: indexPath)
-        cell.textLabel?.text = places[indexPath.row]
-        cell.detailTextLabel?.text = timings[indexPath.row].dateValue().description
+        cell.detailTextLabel?.text = places[indexPath.row]
+        cell.textLabel?.text = timings[indexPath.row].dateValue().description
 
         // Configure the cell...
 
