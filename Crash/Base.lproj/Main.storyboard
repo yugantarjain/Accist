@@ -31,10 +31,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="Map" destination="Mzq-3M-jTG" id="0Ra-eb-ATd"/>
+                        <outlet property="map" destination="Mzq-3M-jTG" id="OoA-pe-f6J"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+            <point key="canvasLocation" x="-164" y="188"/>
         </scene>
     </scenes>
 </document>
