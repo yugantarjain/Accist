@@ -21,6 +21,19 @@ class CrashTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        db.collection("cases").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    print("\(document.documentID) => \(document.data())")
+                    print(document.get("time"))
+                    print(document.get("image"))
+                    print(document.get("place"))
+                    print(document.get("xy"))
+                }
+            }
+        }
     }
 
     // MARK: - Table view data source
