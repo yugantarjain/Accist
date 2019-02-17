@@ -102,16 +102,30 @@ Normal</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Mzq-3M-jTG">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Mzq-3M-jTG">
+                                <rect key="frame" x="0.0" y="430" width="375" height="237"/>
                             </mapView>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9gs-44-g3f">
+                                <rect key="frame" x="16" y="30" width="343" height="183"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="9gs-44-g3f" secondAttribute="height" multiplier="343:183" id="etV-EK-bxO"/>
+                                </constraints>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Mzq-3M-jTG" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="5jr-Qy-EFC"/>
+                            <constraint firstItem="9gs-44-g3f" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="7FL-mx-s2W"/>
                             <constraint firstItem="Mzq-3M-jTG" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="KaU-XB-bHS"/>
                             <constraint firstItem="Mzq-3M-jTG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Mk7-6o-edA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9gs-44-g3f" secondAttribute="trailing" constant="16" id="TKe-GT-hZf"/>
                             <constraint firstAttribute="trailing" secondItem="Mzq-3M-jTG" secondAttribute="trailing" id="TkX-bz-6jZ"/>
+                            <constraint firstItem="9gs-44-g3f" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="eEn-af-zy5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
