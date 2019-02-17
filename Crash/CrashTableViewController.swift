@@ -17,6 +17,8 @@ class CrashTableViewController: UITableViewController {
     var xys = [GeoPoint]()
     @IBOutlet var crashTable: UITableView!
     
+    var index: Int!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -73,12 +75,20 @@ class CrashTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        index = indexPath.row
+        
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier=="toFull")
         {
             let next = segue.destination as! ViewController
+            next.imageLink = imageLinks[index]
+            next.place = places[index]
+            next.time = timings[index].dateValue().description
+            next.lati = xys[index].latitude
+            next.longi = xys[index].longitude
         }
     }
     
