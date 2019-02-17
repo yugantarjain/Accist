@@ -9,8 +9,9 @@
 import UIKit
 import MapKit
 import Firebase
+import WebKit
 
-class ViewController: UIViewController
+class ViewController: UIViewController, WKUIDelegate
 {
     var imageLink: String!
     var place: String!
@@ -21,8 +22,12 @@ class ViewController: UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        resolvedButton.layer.cornerRadius = 10
+        
     }
 
+    @IBOutlet weak var image: WKWebView!
+    @IBOutlet weak var resolvedButton: UIButton!
     @IBOutlet weak var map: MKMapView!
 }
 
