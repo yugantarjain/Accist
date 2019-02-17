@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class MainPageViewController: UIViewController {
 
@@ -15,6 +16,7 @@ class MainPageViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         mainButton.titleLabel?.numberOfLines = 0
+        mainButton.titleLabel?.textAlignment = .center
     }
     @IBOutlet weak var mainButton: UIButton!
     
