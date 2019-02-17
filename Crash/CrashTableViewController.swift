@@ -15,7 +15,8 @@ class CrashTableViewController: UITableViewController {
     var timings = [Timestamp]()
     var imageLinks = [String]()
     var xys = [GeoPoint]()
-
+    @IBOutlet var crashTable: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,6 +44,7 @@ class CrashTableViewController: UITableViewController {
                     self.xys.append(document.get("xy") as! GeoPoint)
                 }
             }
+            self.crashTable.reloadData()
         }
     }
 
@@ -55,18 +57,20 @@ class CrashTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return places.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "crashCell", for: indexPath)
+        cell.textLabel?.text = places[indexPath.row]
+        cell.detailTextLabel?.text = timings[indexPath.row].dateValue().description
 
         // Configure the cell...
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
