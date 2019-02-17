@@ -69,7 +69,7 @@ Normal</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nNc-EZ-w44" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-842" y="188"/>
+            <point key="canvasLocation" x="-882" y="188"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
