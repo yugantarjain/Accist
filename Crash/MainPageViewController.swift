@@ -14,7 +14,9 @@ class MainPageViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        mainButton.titleLabel?.numberOfLines = 0
     }
+    @IBOutlet weak var mainButton: UIButton!
     
 
     /*
