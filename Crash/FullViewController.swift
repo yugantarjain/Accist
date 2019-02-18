@@ -37,7 +37,9 @@ class ViewController: UIViewController, WKUIDelegate
         timet.text = place          //location <-> time
         
         //map
-        let xy = CLLocation(latitude: lati, longitude: longi)
+        let xy = CLLocationCoordinate2D(latitude: lati, longitude: longi)
+        let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+        map.region = MKCoordinateRegion.init(center: xy, span: span)
     }
     @IBAction func resolve(_ sender: UIButton) {
         let alert = UIAlertController(title: "Resolved?", message: "Kindly Confirm", preferredStyle: .alert)
@@ -60,6 +62,7 @@ class ViewController: UIViewController, WKUIDelegate
             })
             
         }))
+        self.present(alert, animated: true, completion: nil)
         
         
         
