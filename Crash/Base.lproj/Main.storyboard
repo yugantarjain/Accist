@@ -180,8 +180,12 @@ Normal</string>
                     <connections>
                         <outlet property="Map" destination="Mzq-3M-jTG" id="0Ra-eb-ATd"/>
                         <outlet property="image" destination="9gs-44-g3f" id="T8t-Ij-aso"/>
+                        <outlet property="latit" destination="ju3-Hv-yxF" id="2hu-iZ-14T"/>
+                        <outlet property="location" destination="xnr-1I-9of" id="ZPq-r9-AHr"/>
+                        <outlet property="longit" destination="MXM-cF-TLd" id="Lij-Fw-s66"/>
                         <outlet property="map" destination="Mzq-3M-jTG" id="OoA-pe-f6J"/>
                         <outlet property="resolvedButton" destination="fhH-2v-Bm6" id="Fte-Z8-j4m"/>
+                        <outlet property="timet" destination="58G-bc-JTV" id="Egx-ND-pJ5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
