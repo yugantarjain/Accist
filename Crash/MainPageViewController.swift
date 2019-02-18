@@ -10,6 +10,8 @@ import UIKit
 import FirebaseDatabase
 
 class MainPageViewController: UIViewController {
+    
+    var handle: DatabaseHandle!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,18 +24,23 @@ class MainPageViewController: UIViewController {
         
         navigationController?.navigationBar.isHidden = true
         
-        db.collection("cases").getDocuments() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    self.mainButton.setTitle("Accident\nReported!", for: UIControl.State.normal)
-                    self.mainButton.isEnabled = true
-                    self.view.backgroundColor = UIColor.red
-                    break;
-                }
-            }
-        }
+//        db.collection("cases").getDocuments() { (querySnapshot, err) in
+//            if let err = err {
+//                print("Error getting documents: \(err)")
+//            } else {
+//                for document in querySnapshot!.documents {
+//                    self.mainButton.setTitle("Accident\nReported!", for: UIControl.State.normal)
+//                    self.mainButton.isEnabled = true
+//                    self.view.backgroundColor = UIColor.red
+//                    break;
+//                }
+//            }
+//        }
+        
+        handle = ref.child("cases").observe(.childAdded, with: { (snapshot) in
+            print(snapshot.key)
+        })
+        
     }
     @IBOutlet weak var mainButton: UIButton!
     
