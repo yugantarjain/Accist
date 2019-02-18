@@ -18,6 +18,7 @@ class ViewController: UIViewController, WKUIDelegate
     var time: String!
     var lati: Double!
     var longi: Double!
+    let space = "   "
     
     override func viewDidLoad() {
         super.viewDidLoad()
