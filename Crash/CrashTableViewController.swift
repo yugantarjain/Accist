@@ -16,8 +16,10 @@ class CrashTableViewController: UITableViewController {
     var imageLinks = [String]()
     var latis = [Double]()
     var longis = [Double]()
+    var handle: DatabaseHandle!
     
     @IBOutlet var crashTable: UITableView!
+    
     
     var index: Int!
     
@@ -25,6 +27,8 @@ class CrashTableViewController: UITableViewController {
         super.viewDidLoad()
         
         navigationController?.navigationBar.isHidden = false
+        
+        ref = Database.database().reference()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -47,15 +51,17 @@ class CrashTableViewController: UITableViewController {
 //            self.crashTable.reloadData()
 //        }
         
-        ref.child("cases").observe(.childAdded, with: { (snapshot) in
+        handle = ref.child("cases").observe(.value, with: { (snapshot) in
             for data in snapshot.children.allObjects as! [DataSnapshot]
             {
                 let a = data.value as? [String: AnyObject]
+//                let b = a?["url"]
+//                self.imageLinks.append(b as! String)
                 self.imageLinks.append(a?["url"] as! String)
                 self.places.append(a?["loc"] as! String)
                 self.timings.append(a?["time"] as! String)
                 self.latis.append(a?["lat"] as! Double)
-                self.longis.append(a?["loc"] as! Double)
+                self.longis.append(a?["long"] as! Double)
             }
             self.crashTable.reloadData()
         })
