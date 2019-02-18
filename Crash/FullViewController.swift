@@ -31,18 +31,40 @@ class ViewController: UIViewController, WKUIDelegate
         image.load(myRequest)
         
         //place, lati, longi, time
-        location.text = place
+        location.text = time        //location <-> time
         latit.text = String(lati)
         longit.text = String(longi)
-        timet.text = time
+        timet.text = place          //location <-> time
         
         //map
         let xy = CLLocation(latitude: lati, longitude: longi)
-        
+    }
+    @IBAction func resolve(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Resolved?", message: "Kindly Confirm", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Default action"), style: .cancel, handler: { _ in
+            print("alert presented")
+        }))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Confirm", comment: "Default action"), style: .default, handler: { _ in
+            
+            ref = Database.database().reference()
+            ref.child("cases").observe(.value, with: { (snapshot) in
+                for data in snapshot.children.allObjects as! [DataSnapshot]
+                {
+                    let a = data.value as?  [String: AnyObject]
+                    if(self.place==(a?["loc"] as! String))
+                    {
+                        
+                    }
+                }
 
+            })
+            
+        }))
+        
+        
         
     }
-
+    
     @IBOutlet weak var image: WKWebView!
     @IBOutlet weak var resolvedButton: UIButton!
     @IBOutlet weak var map: MKMapView!
@@ -50,11 +72,6 @@ class ViewController: UIViewController, WKUIDelegate
     @IBOutlet weak var latit: UILabel!
     @IBOutlet weak var longit: UILabel!
     @IBOutlet weak var timet: UILabel!
-    
-    
-    
-    
-    
-    
+   
 }
 
