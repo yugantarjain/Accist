@@ -22,7 +22,7 @@ class ViewController: UIViewController, WKUIDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        resolvedButton.layer.cornerRadius = 10
+        resolvedButton.layer.cornerRadius = 5
         
     }
 
