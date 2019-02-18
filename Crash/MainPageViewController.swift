@@ -38,7 +38,12 @@ class MainPageViewController: UIViewController {
 //        }
         
         handle = ref.child("cases").observe(.childAdded, with: { (snapshot) in
-            print(snapshot.key)
+            if(snapshot.hasChildren()==true)
+            {
+                self.mainButton.setTitle("Accident\nReported!", for: UIControl.State.normal)
+                self.mainButton.isEnabled = true
+                self.view.backgroundColor = UIColor.red
+            }
         })
         
     }

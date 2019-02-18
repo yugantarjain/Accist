@@ -11,10 +11,12 @@ import FirebaseDatabase
 
 class CrashTableViewController: UITableViewController {
     
-//    var places =  [String]()
-//    var timings = [Timestamp]()
-//    var imageLinks = [String]()
-//    var xys = [GeoPoint]()
+    var places =  [String]()
+    var timings = [String]()
+    var imageLinks = [String]()
+    var latis = [Double]()
+    var longis = [Double]()
+    
     @IBOutlet var crashTable: UITableView!
     
     var index: Int!
@@ -44,6 +46,20 @@ class CrashTableViewController: UITableViewController {
 //            }
 //            self.crashTable.reloadData()
 //        }
+        
+        ref.child("cases").observe(.childAdded, with: { (snapshot) in
+            for data in snapshot.children.allObjects as! [DataSnapshot]
+            {
+                let a = data.value as? [String: AnyObject]
+                self.imageLinks.append(a?["url"] as! String)
+                self.places.append(a?["loc"] as! String)
+                self.timings.append(a?["time"] as! String)
+                self.latis.append(a?["lat"] as! Double)
+                self.longis.append(a?["loc"] as! Double)
+            }
+            self.crashTable.reloadData()
+        })
+        
     }
 
     // MARK: - Table view data source
@@ -55,15 +71,14 @@ class CrashTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-//        return places.count
-        return 1
+        return places.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "crashCell", for: indexPath)
-//        cell.detailTextLabel?.text = places[indexPath.row]
-//        cell.textLabel?.text = timings[indexPath.row].dateValue().description
+        cell.detailTextLabel?.text = places[indexPath.row]
+        cell.textLabel?.text = timings[indexPath.row]
 
         // Configure the cell...
 
@@ -80,11 +95,11 @@ class CrashTableViewController: UITableViewController {
         if(segue.identifier=="toFull")
         {
             let next = segue.destination as! ViewController
-//            next.imageLink = imageLinks[index]
-//            next.place = places[index]
-//            next.time = timings[index].dateValue().description
-//            next.lati = xys[index].latitude
-//            next.longi = xys[index].longitude
+            next.imageLink = imageLinks[index]
+            next.place = places[index]
+            next.time = timings[index]
+            next.lati = latis[index]
+            next.longi = longis[index]
         }
     }
     
