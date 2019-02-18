@@ -7,14 +7,14 @@
 //
 
 import UIKit
-import FirebaseFirestore
+import FirebaseDatabase
 
 class CrashTableViewController: UITableViewController {
     
-    var places =  [String]()
-    var timings = [Timestamp]()
-    var imageLinks = [String]()
-    var xys = [GeoPoint]()
+//    var places =  [String]()
+//    var timings = [Timestamp]()
+//    var imageLinks = [String]()
+//    var xys = [GeoPoint]()
     @IBOutlet var crashTable: UITableView!
     
     var index: Int!
@@ -30,24 +30,20 @@ class CrashTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        db.collection("cases").getDocuments() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    print("\(document.documentID) => \(document.data())")
-//                    print(document.get("time"))
-//                    print(document.get("image"))
-//                    print(document.get("place"))
-//                    print(document.get("xy"))
-                    self.places.append(document.get("place") as! String)
-                    self.timings.append(document.get("time") as! Timestamp)
-                    self.imageLinks.append(document.get("image") as! String)
-                    self.xys.append(document.get("xy") as! GeoPoint)
-                }
-            }
-            self.crashTable.reloadData()
-        }
+//        db.collection("cases").getDocuments() { (querySnapshot, err) in
+//            if let err = err {
+//                print("Error getting documents: \(err)")
+//            } else {
+//                for document in querySnapshot!.documents {
+//                    print("\(document.documentID) => \(document.data())")
+//                    self.places.append(document.get("place") as! String)
+//                    self.timings.append(document.get("time") as! Timestamp)
+//                    self.imageLinks.append(document.get("image") as! String)
+//                    self.xys.append(document.get("xy") as! GeoPoint)
+//                }
+//            }
+//            self.crashTable.reloadData()
+//        }
     }
 
     // MARK: - Table view data source
@@ -59,14 +55,15 @@ class CrashTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return places.count
+//        return places.count
+        return 1
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "crashCell", for: indexPath)
-        cell.detailTextLabel?.text = places[indexPath.row]
-        cell.textLabel?.text = timings[indexPath.row].dateValue().description
+//        cell.detailTextLabel?.text = places[indexPath.row]
+//        cell.textLabel?.text = timings[indexPath.row].dateValue().description
 
         // Configure the cell...
 
@@ -83,11 +80,11 @@ class CrashTableViewController: UITableViewController {
         if(segue.identifier=="toFull")
         {
             let next = segue.destination as! ViewController
-            next.imageLink = imageLinks[index]
-            next.place = places[index]
-            next.time = timings[index].dateValue().description
-            next.lati = xys[index].latitude
-            next.longi = xys[index].longitude
+//            next.imageLink = imageLinks[index]
+//            next.place = places[index]
+//            next.time = timings[index].dateValue().description
+//            next.lati = xys[index].latitude
+//            next.longi = xys[index].longitude
         }
     }
     
